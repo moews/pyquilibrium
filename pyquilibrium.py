@@ -6,8 +6,8 @@ Introduction:
 
 The equilibrium model is an analytic formalism to describe the evolution
 of a set of baryonic galaxy properties, specifically the star formation
-rate, gas fraction and metallicity [1]. After subsequent work on the
-equilibrium model in [2], [3] and [4], this code now provides a Python
+rate, gas fraction and metallicity [1, 2]. After subsequent work on the
+equilibrium model in [3], [4] and [5], this code now provides a Python
 implementation of the formalism. In addition, the relationship between
 cosmological age and redshift is splined outside the primary loop to 
 avoid computing the redshift for each separate iteration.
@@ -52,28 +52,34 @@ Astropy 1.3
 
 References:
 -----------
-[1] Dave, R. et al. (2011), "The neutral hydrogen content of galaxies in
-    cosmological hydrodynamic simulations", Monthly Notices of the Royal
-    Astronomical Society, Vol. 434(3), pp. 2645-2663
-[2] Asplund, M. et al. (2009), "The chemical composition of the sun",
-    Annual Review of Astronomy & Astrophysics, Vol. 47(1), pp. 481-522
-[3] Chabrier, G. (2003), "Galactic stellar and substellar initial mass
-    function", The Publications of the Astronomical Society of the
-    Pacific, Vol. 115(809), pp. 763-795
-[4] Moews, B. et al. (2020), "Hybrid analytic and machine-learned baryonic 
-    property insertion into galactic dark matter haloes", Monthly Notices
-    of the Royal Asstronomical Society, Vol. 504(3), pp. 4024-4038
-[5] Trujillo, I. et al. (2006), "The size evolution of galaxies since
-    z~3: Combining SDSS, GEMS, and FIRES", The Astrophysical Journal,
-    Vol. 650(1), pp. 18-41
-[6] Erb, D. K. et al. (2006), "The mass-metallicity relation at z>~2",
-    The Astrophysical Journal", Vol. 644(2), pp. 813-828
-[7] Behroozi, P. S. et al. (2012), "The average star formation histories
-    of galaxies in dark matter halos from z=0-8", The Astrophysical
-    Journal, Vol. 770(1), Art. 57
-[8] Faucher-Giguere, C. A. et al. (2011), "The baryonic assembly of dark
-    matter haloes", Monthly Notices of the Royal Astronomical Society,
-    Vol. 417(4), pp. 2982-2999
+[1]  Finlator, K. & Dave, R. (2008), "The origin of the galaxy mass–metallicity 
+     relation and implications for galactic outflows", Monthly Notices of
+     the Royal Astronomical Society, Vol. 385(4), pp. 2181–2204
+[2]  Dave, R. et al. (2012), "An analytic model for the evolution of the
+     stellar, gas and metal content of galaxies", Monthly Notices of the
+     Royal Astronomical Society, Vol. 421(1), pp. 98-107
+[3]  Asplund, M. et al. (2009), "The chemical composition of the sun",
+     Annual Review of Astronomy & Astrophysics, Vol. 47(1), pp. 481-522
+[4]  Chabrier, G. (2003), "Galactic stellar and substellar initial mass
+     function", The Publications of the Astronomical Society of the
+     Pacific, Vol. 115(809), pp. 763-795
+[5]  Moews, B. et al. (2020), "Hybrid analytic and machine-learned baryonic 
+     property insertion into galactic dark matter haloes", Monthly Notices
+     of the Royal Asstronomical Society, Vol. 504(3), pp. 4024-4038
+[6]  Dave, R. et al. (2013), "The neutral hydrogen content of galaxies in 
+     cosmological hydrodynamic simulations", Monthly Notices of the Royal 
+     Astronomical Society, Vol. 434(3), pp. 2645-2663
+[7]  Trujillo, I. et al. (2006), "The size evolution of galaxies since
+     z~3: Combining SDSS, GEMS, and FIRES", The Astrophysical Journal,
+     Vol. 650(1), pp. 18-41
+[8]  Erb, D. K. et al. (2006), "The mass-metallicity relation at z>~2",
+     The Astrophysical Journal", Vol. 644(2), pp. 813-828
+[9]  Behroozi, P. S. et al. (2012), "The average star formation histories
+     of galaxies in dark matter halos from z=0-8", The Astrophysical
+     Journal, Vol. 770(1), Art. 57
+[10] Faucher-Giguere, C. A. et al. (2011), "The baryonic assembly of dark
+     matter haloes", Monthly Notices of the Royal Astronomical Society,
+     Vol. 417(4), pp. 2982-2999
 '''
 
 # Import the necessary libraries
@@ -207,11 +213,11 @@ def equilibrium_model(final_redshift,
         return result
 
 def basic_params():
-    # The baryon fraction used in thesimulations in source [1]
+    # The baryon fraction used in the simulations in source [6]
     baryon_frac = 0.164286
-    # The solar metal fraction from source [2]
+    # The solar metal fraction from source [3]
     yield_factor = 0.0126
-    # The recycled mass fraction (from SNe) from source [3]
+    # The recycled mass fraction (from SNe) from source [4]
     rec_rate  = 0.18
     # For computing redshift to time, not the mass load
     eta_old = 0.5
@@ -273,10 +279,10 @@ def gas_frac(redshift,
                                    mass_stars = mass_stars)
     # Check if a positive time slope is present
     if time_slope > 0:
-        # Calculate disk radius according to source [5]
+        # Calculate disk radius according to source [7]
         r_disk = (3 * np.power(1 + redshift, -0.4)
                   * np.power(mass_stars / 5e10, 0.3333))
-        # Calculate Sigma according to source [6]
+        # Calculate Sigma according to source [8]
         sigma = 183 * np.power((mass_stars * ssfr) / np.square(r_disk), 0.71)
         # Update the time dependence
         time_dep = time_dep * (sigma + 0.2 / redshift_gas) / sigma
@@ -314,7 +320,7 @@ def zeta_function(halo_mass,
     # Calculate the photon redshift
     redshift_photo = (np.power(1 + 0.587 * np.power(halo_mass
                       / np.power(10, mass_photo), -2), -1.5))
-    # Source [7]: SFR ~Mh^-(4/3) above quenching mass;-(4/3)=-0.25-1.083
+    # Source [8]: SFR ~Mh^-(4/3) above quenching mass;-(4/3)=-0.25-1.083
     mass_quench = np.power(10, 11.7 + 0.25 * redshift)
     # Check if the halo mass is above quenching mass
     if halo_mass > mass_quench:
@@ -322,7 +328,7 @@ def zeta_function(halo_mass,
     # If not, set the quenching redshift to one
     else:
         redshift_quench = 1
-    # Calculate the gravitational redshift according to source [8]
+    # Calculate the gravitational redshift according to source [10]
     redshift_grav = (0.47 * np.power((1 + redshift) / 4, 0.38)
                      * np.power(halo_mass / 1e12, -0.25))
     # Truncate the gravitational redshift with an upper limit of one
@@ -335,7 +341,7 @@ def zeta_function(halo_mass,
     redshift_wind = 1 - np.exp(intermediate)
     # Calculate the preventive feedback parameter
     zeta = redshift_photo * redshift_quench * redshift_grav * redshift_wind
-    # Fudge dactor to match source [7]
+    # Fudge dactor to match source [9]
     zeta = zeta * 0.5
     # Return the parameter as the function output
     return zeta
@@ -366,7 +372,7 @@ def alpha_metal(halo_mass,
                 redshift):
     # Calculate the ratio of inflowing and ambient ISM gas metallicity
     alpha = np.exp(-redshift) * np.power(halo_mass / 1e11, 2 / 3)
-    # Tweaks for high and low values to accommodate source [7]
+    # Tweaks for high and low values to accommodate source [9]
     if halo_mass > 1e12:
         alpha = alpha * np.power(halo_mass / 1e12, -(2 / 3))
     if alpha < 2:
