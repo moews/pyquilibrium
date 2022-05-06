@@ -8,20 +8,16 @@ The equilibrium model is an analytic formalism to describe the evolution of a se
 
 If you want to start quickly, 'equilibrium' only NEEDS four inputs:
 
-(1) The final redshift to which the galaxy is evolved
-
-(2) The initial halo mass as an exponential of base 10
-
-(3) The hubble constant that is to be used by the code
-
-(4) The matter density parameter (commonly as Omega_m)
+1. The final redshift to which the galaxy is evolved
+2. The initial halo mass as an exponential of base 10
+3. The hubble constant that is to be used by the code
+4. The matter density parameter (commonly as Omega_m)
 
 In addition, thera are two optional parameters that can be set:
 
-(5) The exponent used for calculating the ejective feedback parameter
+5. The exponent used for calculating the ejective feedback parameter
     'eta' in the function 'eta_function()'
-    
-(6) The exponent used for calculating the gas fraction in 'gas_frac()'
+6. The exponent used for calculating the gas fraction in 'gas_frac()'
 An example with the four required parameters would look like this:
     
 ```python
