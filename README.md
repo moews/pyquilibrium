@@ -32,10 +32,7 @@ output = equilibrium_model(final_redshift = 0.0,
 
 ### Libraries
 
-Python 3.4.5
-
-NumPy 1.11.3
-
-SciPy 0.18.1
-
-Astropy 1.3
+- Python 3.4.5
+- NumPy 1.11.3
+- SciPy 0.18.1
+- Astropy 1.3
