@@ -18,6 +18,7 @@ In addition, thera are two optional parameters that can be set:
 5. The exponent used for calculating the ejective feedback parameter
     'eta' in the function 'eta_function()'
 6. The exponent used for calculating the gas fraction in 'gas_frac()'
+
 An example with the four required parameters would look like this:
     
 ```python
