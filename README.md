@@ -2,7 +2,7 @@
 
 ### A pure-Python equilibrium model code with speedy t-z splining
 
-The equilibrium model is an analytic formalism to describe the evolution of a set of baryonic galaxy properties, specifically the star formation rate, gas fraction and metallicity ([Davé et al., 2019](https://arxiv.org/abs/1302.3631)). After subsequent work on the equilibrium model in [Asplund et al. (2009)](https://arxiv.org/abs/0909.0948), [Chabrier (2003)](https://arxiv.org/abs/astro-ph/0304382) and [Moews et al. (2020)](https://arxiv.org/abs/2012.05820), this code now provides a Python implementation of the formalism. In addition, the relationship between cosmological age and redshift is splined outside the primary loop to avoid computing the redshift for each separate iteration.
+The equilibrium model is an analytic formalism to describe the evolution of a set of baryonic galaxy properties, specifically the star formation rate, gas fraction and metallicity ([Finlator & Davé, 2008](https://arxiv.org/abs/0704.3100); [Davé et al., 2012](https://arxiv.org/abs/1108.0426)). After the incorporation of related work in [Asplund et al. (2009)](https://arxiv.org/abs/0909.0948), [Chabrier (2003)](https://arxiv.org/abs/astro-ph/0304382) and [Moews et al. (2020)](https://arxiv.org/abs/2012.05820), this code now provides a Python implementation of the formalism. In addition, the relationship between cosmological age and redshift is splined outside the primary loop to avoid computing the redshift for each separate iteration.
 
 ### Quickstart
 
