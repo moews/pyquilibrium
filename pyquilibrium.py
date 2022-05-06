@@ -63,15 +63,15 @@ References:
 [4] Moews, B. et al. (2020), "Hybrid analytic and machine-learned baryonic 
     property insertion into galactic dark matter haloes", Monthly Notices
     of the Royal Asstronomical Society, Vol. 504(3), pp. 4024-4038
-[4] Trujillo, I. et al. (2006), "The size evolution of galaxies since
+[5] Trujillo, I. et al. (2006), "The size evolution of galaxies since
     z~3: Combining SDSS, GEMS, and FIRES", The Astrophysical Journal,
     Vol. 650(1), pp. 18-41
-[5] Erb, D. K. et al. (2006), "The mass-metallicity relation at z>~2",
+[6] Erb, D. K. et al. (2006), "The mass-metallicity relation at z>~2",
     The Astrophysical Journal", Vol. 644(2), pp. 813-828
-[6] Behroozi, P. S. et al. (2012), "The average star formation histories
+[7] Behroozi, P. S. et al. (2012), "The average star formation histories
     of galaxies in dark matter halos from z=0-8", The Astrophysical
     Journal, Vol. 770(1), Art. 57
-[7] Faucher-Giguere, C. A. et al. (2011), "The baryonic assembly of dark
+[8] Faucher-Giguere, C. A. et al. (2011), "The baryonic assembly of dark
     matter haloes", Monthly Notices of the Royal Astronomical Society,
     Vol. 417(4), pp. 2982-2999
 '''
