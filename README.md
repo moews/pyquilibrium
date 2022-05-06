@@ -22,7 +22,7 @@ In addition, thera are two optional parameters that can be set:
 An example with the four required parameters would look like this:
     
 ```python
-from equilibrium import equilibrium_model
+from pyquilibrium import equilibrium_model
 
 output = equilibrium_model(final_redshift = 0.0,
                            halo_mass = 8.2,
