@@ -13,7 +13,7 @@ If you want to start quickly, 'equilibrium' only NEEDS four inputs:
 3. The hubble constant that is to be used by the code
 4. The matter density parameter (commonly as Omega_m)
 
-In addition, thera are two optional parameters that can be set:
+In addition, there are two optional parameters that can be set:
 
 5. The exponent used for calculating the ejective feedback parameter
     'eta' in the function 'eta_function()'
